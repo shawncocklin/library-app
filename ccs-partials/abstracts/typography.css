@@ -1,0 +1,54 @@
+.text-left { text-align: left;}
+.text-center { text-align: center;}
+
+.font-sans {
+  font-family: var(--ff-sans);
+}
+
+.font-mono {
+  font-family: var(--ff-mono);
+}
+
+.fs-200 {
+  font-size: var(--fs-200);
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+
+.fs-400 {
+  font-size: var(--fs-400);
+}
+
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.fs-700 {
+  font-size: var(--fs-700);
+}
+
+.fs-lg {
+  font-size: var(--fs-lg);
+}
+
+.fs-xl {
+  font-size: var(--fs-xl);
+}
+
+.fw-normal {
+  font-weight: var(--fw-normal);
+}
+
+.fw-medium {
+  font-weight: var(--fw-medium);
+}
+
+.fw-semibold {
+  font-weight: var(--fw-semibold);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}

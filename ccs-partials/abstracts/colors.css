@@ -1,0 +1,42 @@
+.bg-primary {
+  background-color: var(--clr-primary);
+}
+
+.bg-secondary {
+  background-color: var(--clr-secondary);
+}
+
+.bg-accent {
+  background-color: var(--clr-accent);
+}
+
+.bg-light {
+  background-color: var(--clr-light);
+}
+
+.bg-dark {
+  background-color: var(--clr-dark);
+}
+
+.text-primary {
+  color: var(--clr-primary);
+}
+
+.text-secondary {
+  color: var(--clr-secondary);
+}
+
+.text-accent {
+  color: var(--clr-accent);
+}
+
+.text-light {
+  color: var(--clr-light);
+}
+
+.text-dark {
+  color: var(--clr-dark);
+}
+
+
+

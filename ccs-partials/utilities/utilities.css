@@ -1,0 +1,71 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.box-shadow {
+  box-shadow: var(--box-shadow);
+}
+
+/* LAYOUT */
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.justify-between {
+  justify-content: space-between;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.grid-body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr minmax(4rem, 8rem);
+  gap: var(--gap, 1rem);
+  /* border: 3px solid green; */
+}
+
+.container {
+  padding-inline: 2em;
+  margin-inline: auto;
+  max-width: min(calc(100% - 2em), var(--width, 80rem));
+}
+
+/* .grid-container {
+  display: grid;
+  grid-template-columns: minmax(2em, 1fr) repeat(2, minmax(0, 40rem)) minmax(2em, 1fr);
+  gap: var(--container-gap, 1rem);
+}
+
+.grid-container > *:first-child {
+  grid-column: 2 / span 1;
+}
+
+.grid-container > *:last-child {
+  grid-column: 3 / span 1;
+} */
+
+.flow > *:where(:not(:first-child))  {
+  margin-top: var(--spacer, 1rem);
+}
+

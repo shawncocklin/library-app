@@ -1,0 +1,60 @@
+.btn {
+  background: none;
+  border: none;
+  border-radius: var(--br);
+  cursor: pointer;
+}
+
+.btn:not(.delete-btn) {
+  background-color: var(--bg);
+  color: var(--text);
+  padding-block: 4px;
+  border: 2px solid var(--border-clr);
+  width: 80px;
+}
+
+.btn-primary {
+  --bg: var(--clr-accent);
+  --text: var(--clr-secondary);
+  --border-clr: transparent;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  --bg: var(--clr-secondary);
+  --text: var(--clr-accent);
+  --border-clr: var(--clr-accent);
+}
+
+.btn-secondary {
+  --bg: var(--clr-secondary);
+  --text: var(--clr-accent);
+  --border-clr: var(--clr-accent);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  --bg: var(--clr-accent);
+  --text: var(--clr-secondary);
+  --border-clr: transparent;
+}
+
+.btn-submit {
+  --bg: var(--clr-accent);
+  --text: var(--clr-primary);
+  --border-clr: transparent;
+}
+
+.btn-submit:hover,
+.btn-submit:focus-visible {
+  --bg: var(--clr-primary);
+  --text: var(--clr-accent);
+  --border-clr: var(--clr-accent);
+}
+
+.delete-btn {
+  font-size: 24px;
+  position: absolute;
+  top: 1px;
+  right: 10px;
+}

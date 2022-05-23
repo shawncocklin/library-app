@@ -1,0 +1,9 @@
+@import './ccs-partials/abstracts/fonts.css';
+@import './ccs-partials/abstracts/root.css';
+@import './ccs-partials/abstracts/reset.css';
+@import './ccs-partials/abstracts/colors.css';
+@import './ccs-partials/abstracts/typography.css';
+@import './ccs-partials/utilities/utilities.css';
+@import './ccs-partials/base/base.css';
+@import './ccs-partials/components/buttons.css';
+@import './ccs-partials//components/card.css';

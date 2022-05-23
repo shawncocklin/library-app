@@ -1,0 +1,36 @@
+:root {
+
+  /* colors */
+  --clr-primary: #561D25;
+  --clr-secondary: #042A2B;
+  --clr-accent: #F4F0E8;
+
+  --clr-light: #FAFAFA;
+  --clr-dark: #000000;
+
+
+  /* fonts */
+  --ff-sans: 'Montserrat', sans-serif;
+  --ff-mono: 'Courier Prime', 'Courier New', monospace;
+
+  --fs-200: 0.875rem; /*14px*/
+  --fs-300: 0.9375rem; /*15px -- button text*/
+  --fs-400: 1rem; /*16px*/
+  --fs-600: 1.25rem; /*20px*/
+  --fs-700: 1.5rem; /*24px*/
+  --fs-lg: 2rem; /*32px*/
+  --fs-xl: 3rem; /*48px*/
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* box-shadow */
+  --box-shadow: 0 0 1rem 0 hsla(0 0% 0% / .15);
+
+  /* utility */
+  --br: 1rem;
+  --border: 1px solid var(--clr-dark);
+
+}

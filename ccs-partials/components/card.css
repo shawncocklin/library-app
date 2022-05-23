@@ -1,0 +1,42 @@
+.card {
+  flex-direction: column;
+  font-family: var(--ff-mono);
+  width: 300px;
+  height: 400px;
+  background-color: var(--clr-accent);
+  border: 1px solid black;
+  border-radius: var(--br);
+  text-align: center;
+
+  position: relative;
+}
+
+.header p:not(:first-child) {
+  padding-left: 1em;
+}
+
+.card p {
+  border-bottom: var(--border);
+}
+
+.top {
+  border-top: var(--border);
+}
+
+.grid-modifier p:nth-child(2) {
+  border-left: var(--border);
+  border-right: var(--border);
+}
+
+.grid-modifier {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.content > div {
+  height: 24px;
+}
+
+.space {
+  height: 8px;
+  border: var(--border);
+}
