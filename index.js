@@ -5,7 +5,14 @@
 // TODO: page animations
 
 
-import { supabase } from './supabase'
+// import { supabase } from './supabase'
+import { createClient } from '@supabase/supabase-js'
+// import 'dotenv/config'
+
+const url = import.meta.env.VITE_SUPABASE_URL
+const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+const supabase = createClient(url, anonKey)
 // DOM reference variables
 const bookContainer = document.querySelector('#book-container')
 const titleInput = document.querySelector('#title')
