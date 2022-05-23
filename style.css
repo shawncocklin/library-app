@@ -408,6 +408,7 @@ form label {
   text-align: center;
 
   position: relative;
+  overflow: hidden;
 }
 .header p:not(:first-child) {
   padding-left: 1em;
