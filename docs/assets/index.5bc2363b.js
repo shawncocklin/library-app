@@ -2,8 +2,8 @@ const He=function(){const e=document.createElement("link").relList;if(e&&e.suppo
     <div class="card flow book box-shadow" data-index="${r}" style="--spacer: 8px;">
       <div class="header">
         <p class="flex align-center" style="height: 40px; ">From the Library</p>
-        <p class="text-left" style="height: 25px;">Title: ${n}</p>
-        <p class="text-left" style="height: 25px;">Author: ${e}</p>
+        <p class="text-left" style="min-height: 25px;">Title: ${n}</p>
+        <p class="text-left" style="min-height: 25px;">Author: ${e}</p>
       </div>
       <div class="fs-200 content">
         <div class=" grid grid-modifier" style="--gap: 0;">

@@ -1,13 +1,10 @@
 // TODO: add authentication
 // TODO: add user ID to new book creation
-// TODO: rewrite delete book function to work with db
 // TODO: refactor code
 // TODO: page animations
 
 
-// import { supabase } from './supabase'
 import { createClient } from '@supabase/supabase-js'
-// import 'dotenv/config'
 
 const url = import.meta.env.VITE_SUPABASE_URL
 const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -40,8 +37,8 @@ function generateBookCard(title, author, pageCount, index, date) {
     <div class="card flow book box-shadow" data-index="${index}" style="--spacer: 8px;">
       <div class="header">
         <p class="flex align-center" style="height: 40px; ">From the Library</p>
-        <p class="text-left" style="height: 25px;">Title: ${title}</p>
-        <p class="text-left" style="height: 25px;">Author: ${author}</p>
+        <p class="text-left" style="min-height: 25px;">Title: ${title}</p>
+        <p class="text-left" style="min-height: 25px;">Author: ${author}</p>
       </div>
       <div class="fs-200 content">
         <div class=" grid grid-modifier" style="--gap: 0;">
