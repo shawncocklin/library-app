@@ -64,6 +64,11 @@ const He=function(){const e=document.createElement("link").relList;if(e&&e.suppo
         <div class="grid grid-modifier" style="--gap: 0;">
           <p></p>
           <p></p>
+          <p></p>
+        </div>
+        <div class="grid grid-modifier" style="--gap: 0;">
+          <p></p>
+          <p></p>
           <p><button  class="btn delete-btn">\xD7</button></p>
         </div>
       </div>

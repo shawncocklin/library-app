@@ -99,6 +99,11 @@ function generateBookCard(title, author, pageCount, index, date) {
         <div class="grid grid-modifier" style="--gap: 0;">
           <p></p>
           <p></p>
+          <p></p>
+        </div>
+        <div class="grid grid-modifier" style="--gap: 0;">
+          <p></p>
+          <p></p>
           <p><button  class="btn delete-btn">×</button></p>
         </div>
       </div>
