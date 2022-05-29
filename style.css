@@ -259,6 +259,7 @@ select {
 }
 .container {
   padding-inline: 2em;
+  padding-bottom: 2rem;
   margin-inline: auto;
   max-width: min(calc(100% - 2em), var(--width, 80rem));
 }
@@ -289,7 +290,10 @@ header {
 
   padding-inline: 4rem; 
   justify-content: space-between;
+  position: fixed;
+  z-index: 10;
 }
+main, aside {transform: translateY(80px);}
 aside {
   width: 284px;
   height: 100vh;

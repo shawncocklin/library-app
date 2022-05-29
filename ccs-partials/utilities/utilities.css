@@ -47,6 +47,7 @@
 
 .container {
   padding-inline: 2em;
+  padding-bottom: 2rem;
   margin-inline: auto;
   max-width: min(calc(100% - 2em), var(--width, 80rem));
 }
