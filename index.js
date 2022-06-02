@@ -1,4 +1,4 @@
-
+// TODO: leaderboard
 // TODO: refactor code
 // TODO: page animations
 
@@ -15,12 +15,15 @@ const titleInput = document.querySelector('#title')
 const authorInput = document.querySelector('#author')
 const readerInput = document.querySelector('#reader')
 const pageCountInput = document.querySelector('#page-count')
+const leaderBtn = document.querySelector('#leaderboard-btn')
 const submitBtn = document.querySelector('.btn-submit')
 const validationText = document.querySelector('.validation-text')
+
 
 // event listeners
 document.addEventListener('DOMContentLoaded', displayBooks)
 submitBtn.addEventListener('click', addBookToLibrary)
+leaderBtn.addEventListener('click', openLeaderboard)
 bookContainer.addEventListener('click', editBookCard)
 
 // book template
@@ -38,7 +41,7 @@ function generateBookCard(title, author, pageCount, index, date, reader) {
     <div class="card flow book box-shadow" data-index="${index}" style="--spacer: 8px;">
       <div class="header">
         <p class="flex align-center" style="height: 40px; ">From the Library</p>
-        <p class="text-left" style="min-height: 25px;">Title: ${title}</p>
+        <p class="text-left" style="min-height: 25px;" data-book="title">Title: ${title}</p>
         <p class="text-left" style="min-height: 25px;">Author: ${author}</p>
       </div>
       <div class="fs-200 content">
@@ -49,8 +52,8 @@ function generateBookCard(title, author, pageCount, index, date, reader) {
         </div>
         <div class="grid grid-modifier" style="--gap: 0;">
           <p>${date}</p>
-          <p>${reader}</p>
-          <p>${pageCount}</p>
+          <p data-book="reader">${reader}</p>
+          <p data-book="pages">${pageCount}</p>
         </div>
         <div class="grid grid-modifier" style="--gap: 0;">
           <p></p>
@@ -121,6 +124,10 @@ function getBookFromUser() {
     return new Book(title, author, pageCount, reader)
 }
 
+function openLeaderboard(e) {
+  e.preventDefault()
+}
+
 // add new book to the library array. will be hooked into database eventually
 async function addBookToLibrary(e) {
   e.preventDefault()
@@ -171,14 +178,12 @@ async function displayBooks() {
 }
 
 // handles removing book card from page when delete button pressed
-// will need to be rewritten to use db methods for removing table rows
 async function editBookCard(e) {
   const target = e.target
   if(target.classList.contains('delete-btn')) {
     let bookToRemove = target.closest('.book')
     let bookIndex = bookToRemove.dataset.index
     const { data, error } = await supabase.from('books').delete().match({ id: bookIndex })
-    // myLibrary.splice(bookIndex, 1)
     bookToRemove.remove()
   }
 }

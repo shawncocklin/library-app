@@ -10,7 +10,6 @@
   color: var(--text);
   padding-block: 4px;
   border: 2px solid var(--border-clr);
-  width: 80px;
 }
 
 .btn-primary {
