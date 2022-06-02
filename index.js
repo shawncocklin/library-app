@@ -1,5 +1,4 @@
-// TODO: add authentication
-// TODO: add user ID to new book creation
+
 // TODO: refactor code
 // TODO: page animations
 
@@ -14,6 +13,7 @@ const supabase = createClient(url, anonKey)
 const bookContainer = document.querySelector('#book-container')
 const titleInput = document.querySelector('#title')
 const authorInput = document.querySelector('#author')
+const readerInput = document.querySelector('#reader')
 const pageCountInput = document.querySelector('#page-count')
 const submitBtn = document.querySelector('.btn-submit')
 const validationText = document.querySelector('.validation-text')
@@ -24,15 +24,16 @@ submitBtn.addEventListener('click', addBookToLibrary)
 bookContainer.addEventListener('click', editBookCard)
 
 // book template
-function Book(title, author, pageCount) {
+function Book(title, author, pageCount, reader) {
   this.title = title
   this.author = author
   this.pageCount = pageCount
+  this.reader = reader
   
 }
 
 // generate HTML for the displayed book cards
-function generateBookCard(title, author, pageCount, index, date) {
+function generateBookCard(title, author, pageCount, index, date, reader) {
   return `
     <div class="card flow book box-shadow" data-index="${index}" style="--spacer: 8px;">
       <div class="header">
@@ -48,7 +49,7 @@ function generateBookCard(title, author, pageCount, index, date) {
         </div>
         <div class="grid grid-modifier" style="--gap: 0;">
           <p>${date}</p>
-          <p>User</p>
+          <p>${reader}</p>
           <p>${pageCount}</p>
         </div>
         <div class="grid grid-modifier" style="--gap: 0;">
@@ -116,7 +117,8 @@ function getBookFromUser() {
     const title = titleInput.value
     const author = authorInput.value
     const pageCount = pageCountInput.value
-    return new Book(title, author, pageCount)
+    const reader = readerInput.value 
+    return new Book(title, author, pageCount, reader)
 }
 
 // add new book to the library array. will be hooked into database eventually
@@ -127,7 +129,7 @@ async function addBookToLibrary(e) {
   } 
   bookContainer.innerHTML = ''
   const newBook = getBookFromUser()
-  if(newBook.title === '' || newBook.author === '') {
+  if(newBook.title === '' || newBook.author === '' || newBook.pageCount === null || newBook.reader === '') {
     validationText.classList.remove('hidden')
 
     displayBooks()
@@ -136,11 +138,13 @@ async function addBookToLibrary(e) {
   const {data, error} = await supabase.from('books').insert([{
     title: newBook.title,
     author: newBook.author,
-    pages: newBook.pageCount
+    pages: newBook.pageCount,
+    reader: newBook.reader,
   }])
  
   titleInput.value = ''
   authorInput.value = ''
+  readerInput.value = ''
   pageCountInput.value = ''
 
   displayBooks()
@@ -157,7 +161,7 @@ async function displayBooks() {
     const date = rawDate.slice(5, 10)
 
     // generate HTML for the book card
-    const displayedBook = generateBookCard(book.title, book.author, book.pages, book.id, date)
+    const displayedBook = generateBookCard(book.title, book.author, book.pages, book.id, date, book.reader)
     // create div to hold 
     const bookCard = document.createElement('div')
     
