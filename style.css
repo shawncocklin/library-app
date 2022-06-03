@@ -436,3 +436,20 @@ form label {
   height: 8px;
   border: var(--border);
 }
+.leaderboard {
+  position: absolute;
+  width: 284px;
+  min-height: 500px;
+  top: 100px;
+  left: 50%;
+  z-index: 20;
+
+  padding: 1rem 2rem;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+

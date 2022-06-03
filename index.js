@@ -23,7 +23,7 @@ const validationText = document.querySelector('.validation-text')
 // event listeners
 document.addEventListener('DOMContentLoaded', displayBooks)
 submitBtn.addEventListener('click', addBookToLibrary)
-leaderBtn.addEventListener('click', openLeaderboard)
+leaderBtn.addEventListener('click', toggleLeaderboard)
 bookContainer.addEventListener('click', editBookCard)
 
 // book template
@@ -124,8 +124,15 @@ function getBookFromUser() {
     return new Book(title, author, pageCount, reader)
 }
 
-function openLeaderboard(e) {
+function toggleLeaderboard(e) {
   e.preventDefault()
+  const leaderboard = document.querySelector('.leaderboard')
+  if(!leaderboard.classList.contains('hide')) {
+    leaderBtn.textContent = 'Leaderboard'
+  } else {
+    leaderBtn.textContent = 'Close'
+  }
+  leaderboard.classList.toggle('hide')
 }
 
 // add new book to the library array. will be hooked into database eventually
