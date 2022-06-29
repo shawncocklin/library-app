@@ -11,6 +11,7 @@ const supabase = createClient(url, anonKey)
 // DOM reference variables
 const bookContainer = document.querySelector('#book-container')
 const leaderboardContainer = document.querySelector('#leaderboard-container')
+const leaderboardElem = document.querySelector('.leaderboard')
 const titleInput = document.querySelector('#title')
 const authorInput = document.querySelector('#author')
 const readerInput = document.querySelector('#reader')
@@ -116,22 +117,11 @@ function generateBookCard(title, author, pageCount, index, date, reader) {
   `
 }
 
-function generateLeaderboard() {
+function generateLeaderboard(reader, pages) {
   return `
-    <div class="leaderboard bg-primary flow hide">
-      <p class="font-sans text-light fs-700 fw-semibold text-center">Leaderboard</p>
-      <div class="flex justify-between">
-        <p class="font-sans text-light fs-500">Name</p>
-        <p class="font-sans text-light fs-500">Books</p>
-        <p class="font-sans text-light fs-500">Pages</p>
-      </div>
-      <div class="stats flex justify-between">
-        <p class="font-sans text-light fs-500">Shawn</p>
-        <p class="font-sans text-light fs-500">2</p>
-        <p class="font-sans text-light fs-500">600</p>
-      </div>
-
-    </div>
+        <p class="font-sans text-light fs-500">${reader}</p>
+        <p class="font-sans text-light fs-500"></p>
+        <p class="font-sans text-light fs-500">${pages}</p>
   `
 }
 
@@ -144,14 +134,21 @@ function getBookFromUser() {
   return new Book(title, author, pageCount, reader)
 }
 
-function leaderboardInit() {
-  const leaderboard = generateLeaderboard()
-  leaderboardContainer.innerHTML = leaderboard
+async function leaderboardInit() {
+  const { data, error } = await supabase.from('books').select()
+  data.forEach((book) => {
+    const leaderboard = generateLeaderboard(book.reader, book.pages)
+
+    const leaderCard = document.createElement('div')
+    leaderCard.classList.add('stats', 'flex', 'justify-between')
+    leaderCard.innerHTML = leaderboard
+    leaderboardElem.append(leaderCard)
+  })
 }
 
 function toggleLeaderboard(e) {
   e.preventDefault()
-  const leaderboardElem = document.querySelector('.leaderboard')
+
   if (!leaderboardElem.classList.contains('hide')) {
     leaderBtn.textContent = 'Leaderboard'
   } else {
