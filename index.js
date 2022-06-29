@@ -1,4 +1,4 @@
-// TODO: leaderboard
+// TODO: reduce leaderboard data to total books and pages on one line per reqader
 // TODO: refactor code
 // TODO: page animations
 
