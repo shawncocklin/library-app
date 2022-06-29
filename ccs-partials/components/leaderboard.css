@@ -2,7 +2,7 @@
   position: absolute;
   width: 284px;
   min-height: 500px;
-  top: 100px;
+  top: 150px;
   left: 50%;
   z-index: 20;
 
@@ -16,3 +16,10 @@
   pointer-events: none;
 }
 
+@media (max-width: 700px) {
+  .leaderboard {
+    background-color: var(--clr-secondary);
+    
+    left: 10%;
+  }
+}
