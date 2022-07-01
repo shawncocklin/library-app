@@ -136,7 +136,17 @@ function getBookFromUser() {
 
 async function leaderboardInit() {
   const { data, error } = await supabase.from('books').select()
+  // const names = []
+  // const bookStats = {
+  //   Reader: {},
+  // }
+  // data.forEach((book) => {
+  //   bookStats.Reader = { name: book.reader, pageCount: book.pages }
+  // })
+
+  // console.log(bookStats)
   data.forEach((book) => {
+    // console.log(book)
     const leaderboard = generateLeaderboard(book.reader, book.pages)
 
     const leaderCard = document.createElement('div')
@@ -157,7 +167,7 @@ function toggleLeaderboard(e) {
   leaderboardElem.classList.toggle('hide')
 }
 
-// add new book to the library array. will be hooked into database eventually
+// add new book to the library database
 async function addBookToLibrary(e) {
   e.preventDefault()
   if (!validationText.classList.contains('hidden')) {
